@@ -71,17 +71,17 @@ has_many :reviews
   - (FK) Reviews & ratings
   - (FK) Profile_id
 
-
 **Reviews**
 belongs_to :profile
 has_many_through :kitchens
   - Rating -- Star (Boolean?)
-  - comments: string 
+  - comments: string
 
+## Routes
 
 
 ## Project concerns
   - How to model multiple profiles
   - how to model an array of equipment
-  - Goog ember ui kit package?
+  - Good ember ui kit package?
   -
