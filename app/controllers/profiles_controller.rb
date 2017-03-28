@@ -1,5 +1,5 @@
 # frozen_string_literal: true
-class ProfilesController < ApplicationController
+class ProfilesController < ProtectedController
   before_action :set_profile, only: [:update]
 
   # GET /profiles
