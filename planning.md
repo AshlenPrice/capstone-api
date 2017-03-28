@@ -84,4 +84,8 @@ has_many_through :kitchens
   - How to model multiple profiles
   - how to model an array of equipment
   - Good ember ui kit package?
-  -
+
+
+  ## wireframes & ERD
+  [Wireframe](http://i.imgur.com/LtFxIoYl.jpg)
+  [ERD](http://i.imgur.com/S6ZmKxPl.jpg)
