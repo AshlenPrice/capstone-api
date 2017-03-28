@@ -67,7 +67,57 @@ has_many :reviews
   - phone number: number
   - email: string
   - hours_of_operation: string
-  - features (equipment): boolean {"3 Compartment Sink/Pot Dish Sink,30 Quart Mixer,4 Burner Range w/ Oven,6 Burner Range w/ Oven,6 Quart Mixer,Air-Conditioning,Blast Chiller,Blender,Convection Oven,Convection Steamer Oven,Cooking Utensils,Dry Storage/Shelving,Fine Mesh Strainer/Chinois,Food Processor/Robot Coupe,Hotel Pans,Ice Cream Maker,Ice Machine,Large Burner/Stock Pot/Candy Burner,Large Strainer/China Cap,Loading Dock,Prep Sink/Service Sink,Reach-In Freezer,Reach-In Refrigerator,Sheet Tray Racks,Sheet Trays,Smallwares,Stainless Steel Table/Prep Table,Standard Oven,Steam Kettle,Steamer,Storage Containers/Cambro,Walk-In Refrigerator"}
+  - features (equipment): boolean
+  Metal or plastic shelves for walk-in cooler
+
+rubber_floor_mats
+fire_extinguisher
+
+freezer:boolean ovens:boolean refrigirator:boolean food_prep_counter:boolean slicers:boolean mixers:boolean
+food_processors:boolean ranges:boolean
+sinks:boolean shelving:boolean storage:boolean safety_equipment:boolean
+
+
+Air Conditioning
+Blast Chiller
+Blender
+Broiler
+Cold Food Table
+Dishwasher
+Dough Sheeter
+
+Fryer
+Gluten Free
+Griddle
+Grill
+Grinder
+Ice Cream Maker
+Ice Machine
+Large Burner
+Loading Dock
+Microwave
+Mixer
+
+Proofing Box
+Rack
+Rack Oven
+Range
+Refrigerator
+Rice Cooker
+Rotisserie
+Seating Area
+Sink
+Slicer
+Smallwares
+Stainless Steel Table
+Steam Kettle
+Steam Table
+Steamer
+Storage
+Tilt Skillet
+Vacuum Packager
+Wood Table
+
   - (FK) Reviews & ratings
   - (FK) Profile_id
 
