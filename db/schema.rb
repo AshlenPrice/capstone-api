@@ -27,7 +27,6 @@ ActiveRecord::Schema.define(version: 20170327174239) do
     t.string   "given_name",  null: false
     t.string   "family_name", null: false
     t.integer  "role",        null: false
-    t.integer  "integer",     null: false
     t.integer  "user_id",     null: false
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
