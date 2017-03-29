@@ -1,5 +1,5 @@
 # frozen_string_literal: true
-class ProfilesController < ProtectedController
+class ProfilesController < OpenReadController
   before_action :set_profile, only: [:update]
 
   # GET /profiles
@@ -47,7 +47,7 @@ class ProfilesController < ProtectedController
 
   # Only allow a trusted parameter "white list" through.
   def profile_params
-    params.require(:profile).permit(:given_name, :family_name, :role)
+    params.require(:profile).permit(:given_name, :family_name) # ,:role
   end
   private :profile_params
 end

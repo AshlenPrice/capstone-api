@@ -11,13 +11,12 @@ curl "${API}${URL_PATH}" \
   --data '{
     "profile": {
       "given_name": "'"${GIVEN_NAME}"'",
-      "family_name": "'"${FAMILY_NAME}"'",
-      "role": "'"${ROLE}"'"
+      "family_name": "'"${FAMILY_NAME}"'"
     }
   }'
 
 
   #  \
   # --header "Authorization: Token token=$TOKEN"
-
+  #  "role": "'"${ROLE}"'"
 echo

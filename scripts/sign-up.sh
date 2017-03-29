@@ -1,5 +1,11 @@
 #!/bin/bash
 
+EMAIL='b@b'
+PASSWORD='b'
+GIVEN_NAME='ashP'
+FAMILY_NAME='anthony'
+
+
 API="${API_ORIGIN:-http://localhost:4741}"
 URL_PATH="/sign-up"
 curl "${API}${URL_PATH}" \
@@ -14,10 +20,9 @@ curl "${API}${URL_PATH}" \
     },
     "profile": {
       "given_name": "'"${GIVEN_NAME}"'",
-      "family_name": "'"${FAMILY_NAME}"'",
-      "role": "'"${ROLE}"'",
-      "integer": "'"${INTEGER}"'"
+      "family_name": "'"${FAMILY_NAME}"'"
     }
   }'
-
+#, "integer": "'"${INTEGER}"'"
+#  "role": "'"${ROLE}"'",
 echo
