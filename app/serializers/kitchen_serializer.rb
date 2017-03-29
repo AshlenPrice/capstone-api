@@ -1,4 +1,6 @@
+# frozen_string_literal: true
 class KitchenSerializer < ActiveModel::Serializer
-  attributes :id, :kitchen_name, :location, :phone_number, :email, :available_hours, :freezer, :ovens, :refrigirator, :food_prep_counter, :slicers, :mixers, :food_processors, :ranges, :sinks, :shelving, :storage, :safety_equipment
+  attributes :id, :kitchen_name, :location, :phone_number, :email,
+             :available_hours, :description
   has_one :profile
 end

@@ -24,26 +24,15 @@ ActiveRecord::Schema.define(version: 20170328161049) do
   end
 
   create_table "kitchens", force: :cascade do |t|
-    t.string   "kitchen_name"
-    t.string   "location"
-    t.integer  "phone_number"
-    t.string   "email"
+    t.string   "kitchen_name",    null: false
+    t.string   "location",        null: false
+    t.string   "phone_number",    null: false
+    t.string   "email",           null: false
     t.string   "available_hours"
-    t.boolean  "freezer"
-    t.boolean  "ovens"
-    t.boolean  "refrigirator"
-    t.boolean  "food_prep_counter"
-    t.boolean  "slicers"
-    t.boolean  "mixers"
-    t.boolean  "food_processors"
-    t.boolean  "ranges"
-    t.boolean  "sinks"
-    t.boolean  "shelving"
-    t.boolean  "storage"
-    t.boolean  "safety_equipment"
-    t.integer  "profile_id"
-    t.datetime "created_at",        null: false
-    t.datetime "updated_at",        null: false
+    t.text     "description",     null: false
+    t.integer  "profile_id",      null: false
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
     t.index ["profile_id"], name: "index_kitchens_on_profile_id", using: :btree
   end
 

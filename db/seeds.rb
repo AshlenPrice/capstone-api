@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+# frozen_string_literal: true
 # This file should contain all the record creation needed to seed the database
 # with its default values.
 # The data can then be loaded with the rake db:seed (or created alongside the
@@ -8,3 +9,23 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+Kitchen.create([
+                 {
+                   kitchen_name: 'Hell\'s Kitchen',
+                   location: '123 Fire ln, Boston, MA 02123',
+                   phone_number: '617-555-555',
+                   email: 'contact@hellskitchen.com',
+                   available_hours: 'Mon-Sun 4pm-9pm',
+                   description: 'This kitchen Features: 12 Burner Range w/
+                   Double Oven, 3 Compartment Sink/Pot Dish Sink,
+                   Mixers, Air-Conditioning, Charbroiler/Grill, Cold Food
+                   Table, Convection Oven, Deep Fryer, Dishwasher,
+                   Dry Storage/Shelving,Food Processor/Robot Coupe, Ice Machine,
+                   Loading Dock, Pots and Pans,
+                   Prep Sink/Service Sink, Sheet Tray Racks, Slicer,Stainless
+                   Steel Table/Prep Table, Standard Oven,
+                   Tilt Skilet/Tilt Braiser, Vacuum Packager, Walk-In Freezer,
+                   Walk-In Refrigerator.'
+                 }
+
+               ])

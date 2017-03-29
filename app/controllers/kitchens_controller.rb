@@ -1,33 +1,45 @@
-class KitchensController < ApplicationController
+# frozen_string_literal: true
+class KitchensController < OpenReadController
   before_action :set_kitchen, only: [:show, :update, :destroy]
 
   # GET /kitchens
   def index
     @kitchens = Kitchen.all
+    # @profile = profile.role[1]
 
     render json: @kitchens
   end
 
   # GET /kitchens/1
   def show
-    render json: @kitchen
+    render json: Kitchen.find(params[:id])
   end
 
   # POST /kitchens
   def create
-    @kitchen = Kitchen.new(kitchen_params)
+    # get the profile
+    # save it to a variable
+    # if profile.role === whatever, build
+    # else error
+    @profile = current_user.profile
 
-    if @kitchen.save
-      render json: @kitchen, status: :created, location: @kitchen
-    else
-      render json: @kitchen.errors, status: :unprocessable_entity
+    if @profile.role == :kitchen_owner
+      @profile.kitchens.build(kitchen_params)
+      if @kitchen.save
+        render json: @kitchen, status: :created
+      else
+        render json: @kitchen.errors, status: :unprocessable_entity
+      end
     end
   end
 
   # PATCH/PUT /kitchens/1
   def update
-    if @kitchen.update(kitchen_params)
-      render json: @kitchen
+    @profile = current_user.profile
+
+    if @profile.role == :kitchen_owner
+        @profile.kitchen.update(kitchen_params)
+      head :no_content
     else
       render json: @kitchen.errors, status: :unprocessable_entity
     end
@@ -36,16 +48,20 @@ class KitchensController < ApplicationController
   # DELETE /kitchens/1
   def destroy
     @kitchen.destroy
+
+    head :no_content
   end
 
-  private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_kitchen
-      @kitchen = Kitchen.find(params[:id])
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_kitchen
+    # @kitchen = Kitchen.find(params[:id])
+    @kitchen = current_user.profile.role[1].kitchen.find(params[:id])
+  end
+  private :set_kitchen
 
-    # Only allow a trusted parameter "white list" through.
-    def kitchen_params
-      params.require(:kitchen).permit(:kitchen_name, :location, :phone_number, :email, :available_hours, :freezer, :ovens, :refrigirator, :food_prep_counter, :slicers, :mixers, :food_processors, :ranges, :sinks, :shelving, :storage, :safety_equipment, :profile_id)
-    end
+  # Only allow a trusted parameter "white list" through.
+  def kitchen_params
+    params.require(:kitchen).permit(:kitchen_name, :location, :phone_number, :email, :available_hours, :description, :profile_id)
+  end
+  private :kitchen_params
 end
