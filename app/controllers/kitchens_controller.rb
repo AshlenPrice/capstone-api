@@ -16,29 +16,37 @@ class KitchensController < OpenReadController
   end
 
   # POST /kitchens
+  # def create
+  #   # get the profile
+  #   # save it to a variable
+  #   # if profile.role === whatever, build
+  #   # else error
+  #   @profile = current_user.profile
+  #
+  #   if @profile.role == :kitchen_owner
+  #     @profile.kitchens.build(kitchen_params)
+  #     if @kitchen.save
+  #       render json: @kitchen, status: :created
+  #     else
+  #       render json: @kitchen.errors, status: :unprocessable_entity
+  #     end
+  #   end
+  # end
   def create
-    # get the profile
-    # save it to a variable
-    # if profile.role === whatever, build
-    # else error
-    @profile = current_user.profile
+    # @profile = current_user.profile
+    # @profile.kitchens.build(kitchen_params)
 
-    if @profile.role == :kitchen_owner
-      @profile.kitchens.build(kitchen_params)
-      if @kitchen.save
-        render json: @kitchen, status: :created
-      else
-        render json: @kitchen.errors, status: :unprocessable_entity
-      end
+    @kitchen = current_user.kitchens.build(kitchen_params)
+    if @kitchen.save
+      render json: @kitchen, status: :created
+    else
+      render json: @kitchen.errors, status: :unprocessable_entity
     end
   end
 
   # PATCH/PUT /kitchens/1
   def update
-    @profile = current_user.profile
-
-    if @profile.role == :kitchen_owner
-        @profile.kitchen.update(kitchen_params)
+    if @kitchen.update(kitchen_params)
       head :no_content
     else
       render json: @kitchen.errors, status: :unprocessable_entity
@@ -55,13 +63,14 @@ class KitchensController < OpenReadController
   # Use callbacks to share common setup or constraints between actions.
   def set_kitchen
     # @kitchen = Kitchen.find(params[:id])
-    @kitchen = current_user.profile.role[1].kitchen.find(params[:id])
+    @kitchen = current_user.kitchens.find(params[:id])
   end
   private :set_kitchen
 
   # Only allow a trusted parameter "white list" through.
   def kitchen_params
-    params.require(:kitchen).permit(:kitchen_name, :location, :phone_number, :email, :available_hours, :description, :profile_id)
+    params.require(:kitchen).permit(:kitchen_name, :location, :phone_number,
+                                    :email, :available_hours, :description)
   end
   private :kitchen_params
 end

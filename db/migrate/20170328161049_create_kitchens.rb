@@ -8,7 +8,7 @@ class CreateKitchens < ActiveRecord::Migration[5.0]
       t.string :email, null: false
       t.string :available_hours
       t.text :description, null: false
-      t.references :profile, foreign_key: true, null: false
+      t.references :user, foreign_key: true, null: false
 
       t.timestamps
     end

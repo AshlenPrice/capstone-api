@@ -20,17 +20,17 @@ User.transaction do
   end
 end
 
-Profile.transaction do
-  %w(ash penny ingrid takiya lauren yen wendy).each do |name|
-    email = "#{name}@#{name}.com"
-    user = User.where(email: email).first
-    profile_params = {
-      user_id: user.id,
-      given_name: name,
-      family_name: 'mcface'
-      # role: 1
-    }
-    next if Profile.exists? profile_params
-    Profile.create! profile_params
-  end
-end
+# Profile.transaction do
+#   %w(ash penny ingrid takiya lauren yen wendy).each do |name|
+#     email = "#{name}@#{name}.com"
+#     user = User.where(email: email).first
+#     profile_params = {
+#       user_id: user.id,
+#       given_name: name,
+#       family_name: 'mcface'
+#       # role: 1
+#     }
+#     next if Profile.exists? profile_params
+#     Profile.create! profile_params
+#   end
+# end

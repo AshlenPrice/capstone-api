@@ -30,10 +30,10 @@ ActiveRecord::Schema.define(version: 20170328161049) do
     t.string   "email",           null: false
     t.string   "available_hours"
     t.text     "description",     null: false
-    t.integer  "profile_id",      null: false
+    t.integer  "user_id",         null: false
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
-    t.index ["profile_id"], name: "index_kitchens_on_profile_id", using: :btree
+    t.index ["user_id"], name: "index_kitchens_on_user_id", using: :btree
   end
 
   create_table "profiles", force: :cascade do |t|
@@ -56,6 +56,6 @@ ActiveRecord::Schema.define(version: 20170328161049) do
   end
 
   add_foreign_key "examples", "users"
-  add_foreign_key "kitchens", "profiles"
+  add_foreign_key "kitchens", "users"
   add_foreign_key "profiles", "users"
 end

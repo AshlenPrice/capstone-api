@@ -2,8 +2,8 @@
 
 EMAIL='b@b'
 PASSWORD='b'
-GIVEN_NAME='ashP'
-FAMILY_NAME='anthony'
+# GIVEN_NAME='ashP'
+# FAMILY_NAME='anthony'
 
 
 API="${API_ORIGIN:-http://localhost:4741}"
@@ -17,12 +17,12 @@ curl "${API}${URL_PATH}" \
       "email": "'"${EMAIL}"'",
       "password": "'"${PASSWORD}"'",
       "password_confirmation": "'"${PASSWORD}"'"
-    },
-    "profile": {
-      "given_name": "'"${GIVEN_NAME}"'",
-      "family_name": "'"${FAMILY_NAME}"'"
     }
   }'
+  # "profile": {
+  #   "given_name": "'"${GIVEN_NAME}"'",
+  #   "family_name": "'"${FAMILY_NAME}"'"
+  # }
 #, "integer": "'"${INTEGER}"'"
 #  "role": "'"${ROLE}"'",
 echo
