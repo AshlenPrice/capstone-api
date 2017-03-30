@@ -1,7 +1,7 @@
 #!/bin/bash
 
-EMAIL='b@b'
-PASSWORD='b'
+EMAIL='pen'
+PASSWORD='1'
 # GIVEN_NAME='ashP'
 # FAMILY_NAME='anthony'
 

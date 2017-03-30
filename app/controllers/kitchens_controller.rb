@@ -1,12 +1,17 @@
 # frozen_string_literal: true
 class KitchensController < OpenReadController
-  before_action :set_kitchen, only: [:show, :update, :destroy]
+  before_action :set_kitchen, only: [:update, :destroy]
 
   # GET /kitchens
   def index
     @kitchens = Kitchen.all
     # @profile = profile.role[1]
+    render json: @kitchens
+  end
 
+  # GET /userkitchens
+  def userskitchen
+    @kitchens = current_user.kitchens.all
     render json: @kitchens
   end
 
